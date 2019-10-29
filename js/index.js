@@ -16,13 +16,18 @@ window.addEventListener(`keydown`, ()=>{
 
 //wheel
 
-const textintro = document.getElementsByClassName(`text`);
-window.addEventListener(`wheel`, () =>{
- textintro.setAttribute("style", "color: coral;");
+const textcontent = document.getElementsByClassName('text')[0];
+window.addEventListener('keydown', ()=>{
+    textcontent.setAttribute("style", "color: grey;");
 });
 
-//drag-drop
 
+//drag-drop
+const imagesContent = document.getElementsByClassName('img-content')
+
+imagesContent[0].addEventListener('drag', e => {
+    alert('Please do not use our pictures without permission!')
+});
 
 
 // load
@@ -32,11 +37,12 @@ window.addEventListener('load', (event) => {
   });
 
 //focus & changing color
+document.getElementById("").addEventListener("focus",myFunction);
 
-input.addEventListener('focus',(event) => {
-  input.style.backgroundColor = "aqua";
-  input.style.color = "green"  
-})
+function myFunction(){
+    document.getElementById("").style.backgroundColor ="yellow";
+}
+
 //resize
 
 window.addEventListener('resize', (event) => { 
@@ -45,22 +51,26 @@ window.addEventListener('resize', (event) => {
 
 // scroll & changing color
 
-const contentheader= document.getElementsByClassName('content-section')[0]
+const contentheader= document.getElementsByClassName('content-section')[0];
 window.addEventListener('scroll', () => {
    contentheader.setAttribute("style", "color: coral"); 
     
 });
 
 //select
-
+document.getElementById("").addEventListener("select", myfunction);
+function myfucntion(){
+    document.getElementById("").innerHTML = "You select some text!";
+}
 
 
 //dblclick
 
-const destinationimg = document.querySelector('a');
+const destinationimg = document.querySelector('img');
 destinationimg.addEventListener(`dblclick`, () => {
-    destinationimg.style.visibility = 'hidden';
+    destinationimg.style.opacity = '.06';
 });
+
 // hidden object
 
 const funbus = document.getElementsByClassName('intro');
@@ -82,7 +92,10 @@ function navclicked(ev){
 
 //Prevent event propagation
 
-
+const Home = document.querySelector('.nav-link');
+Home.addEventListener('click', (event) => {
+    event.stopPropagation();
+})
 
 
 
@@ -95,5 +108,7 @@ const navbar = document.getElementsByClassName('main-navigation')
 window.addEventListener(`load`, ()=>{
     navbar.setAttribute("style", "color: yellow");
 });
+
+// Nested
 
 
