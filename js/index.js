@@ -16,7 +16,10 @@ window.addEventListener(`keydown`, ()=>{
 
 //wheel
 
-
+const textintro = document.getElementsByClassName(`text`);
+window.addEventListener(`wheel`, () =>{
+ textintro.setAttribute("style", "color: coral;");
+});
 
 //drag-drop
 
@@ -52,18 +55,12 @@ window.addEventListener('scroll', () => {
 
 
 
-//dbclick
+//dblclick
 
-const logSelection = document.getElementById('log');
-logSelection.addEventListener('click', function(event) {
-    console.log(`Target: `, event.target);
-    console.log(`Current Target: `, event.currentTarget);
-
-    event.target.style.color = 'lightblue';
-})
-
-
-
+const destinationimg = document.querySelector('a');
+destinationimg.addEventListener(`dblclick`, () => {
+    destinationimg.style.visibility = 'hidden';
+});
 // hidden object
 
 const funbus = document.getElementsByClassName('intro');
@@ -71,3 +68,32 @@ const funbus = document.getElementsByClassName('intro');
 funbus.addEventListener(`mouseover`, ()=>{
     funbus.style.visibility = 'hidden';
 });
+
+
+// prevent default
+
+navbar.addEventListener('click', navclicked);
+ev.preventDefault();
+function navclicked(ev){
+    console.log(`Target: `, event.target);
+    console.log(`Current Target: `, event.currentTrget);
+}
+
+
+//Prevent event propagation
+
+
+
+
+
+
+
+// changing colors
+
+const navbar = document.getElementsByClassName('main-navigation')
+
+window.addEventListener(`load`, ()=>{
+    navbar.setAttribute("style", "color: yellow");
+});
+
+
