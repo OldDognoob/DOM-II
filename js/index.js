@@ -1,25 +1,24 @@
 // Your code goes here
 
 // mouseover effect
-document.addEventListener('mouseover', (event) => {
-    console.log('Mouse over!', `position: [${event.clientX},${event.client}]`);
-    //console.log(event);
-});
+const bottomBtn = document.getElementsByClassName('btn');
 
-//keydown & changing color
-const introheader = document.getElementsByClassName(`intro`)[0];
+bottomBtn[0].addEventListener('mouseover', function () {
+    bottomBtn[0].style.backgroundColor= "pink";
+    bottomBtn[0].style.color = "white";
+})
 
-window.addEventListener(`keydown`, ()=>{
-    introheader.setAttribute("style", "color: red;");
-});
+//keydown 
 
+document.addEventListener('keydown', () => {
+    alert('Document empty')
+})
 
 //wheel
 
-const textcontent = document.getElementsByClassName('text')[0];
-window.addEventListener('keydown', ()=>{
-    textcontent.setAttribute("style", "color: grey;");
-});
+window.addEventListener('wheel', (event) => {
+    // console.log(event.clientY);
+})
 
 
 //drag-drop
@@ -37,11 +36,11 @@ window.addEventListener('load', (event) => {
   });
 
 //focus & changing color
-document.getElementById("").addEventListener("focus",myFunction);
+input.addEventListener('focus', (event) => {
+    input.style.backgroundColor = 'green';
+    input.style.color = 'white'
+})
 
-function myFunction(){
-    document.getElementById("").style.backgroundColor ="yellow";
-}
 
 //resize
 
@@ -51,16 +50,17 @@ window.addEventListener('resize', (event) => {
 
 // scroll & changing color
 
-const contentheader= document.getElementsByClassName('content-section')[0];
 window.addEventListener('scroll', () => {
-   contentheader.setAttribute("style", "color: coral"); 
+    var pixels = Math.round(window.scrolly);
     
-});
+})
 
 //select
-document.getElementById("").addEventListener("select", myfunction);
-function myfucntion(){
-    document.getElementById("").innerHTML = "You select some text!";
+
+function logSelection(event) {
+    const log = document.getElementById('log');
+    const selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+    log.textContent = `You selected: ${selection}`;
 }
 
 
@@ -71,23 +71,17 @@ destinationimg.addEventListener(`dblclick`, () => {
     destinationimg.style.opacity = '.06';
 });
 
-// hidden object
-
-const funbus = document.getElementsByClassName('intro');
-
-funbus.addEventListener(`mouseover`, ()=>{
-    funbus.style.visibility = 'hidden';
-});
-
 
 // prevent default
 
-navbar.addEventListener('click', navclicked);
-ev.preventDefault();
-function navclicked(ev){
-    console.log(`Target: `, event.target);
-    console.log(`Current Target: `, event.currentTrget);
-}
+const navLinks = document.querySelectorAll('a');
+
+navLinks.forEach((item) => {
+    item.addEventListener('click', (event) => {
+        event.preventDefault()
+        console.log(`Disabled.`)
+    })
+})
 
 
 //Prevent event propagation
@@ -99,15 +93,12 @@ Home.addEventListener('click', (event) => {
 
 
 
-
-
 // changing colors
-
-const navbar = document.getElementsByClassName('main-navigation')
-
-window.addEventListener(`load`, ()=>{
-    navbar.setAttribute("style", "color: yellow");
+const secondBorder = document.querySelector('.inverse-content');
+window.addEventListener('load', () => {
+    secondBorder.style.border = '1rem solid blue';
 });
+
 
 // Nested
 
