@@ -36,11 +36,10 @@ window.addEventListener('load', (event) => {
   });
 
 //focus & changing color
-input.addEventListener('focus', (event) => {
-    input.style.backgroundColor = 'green';
-    input.style.color = 'white'
-})
-
+const navItems = document.getElementsByClassName('nav-link');
+navItems[0].addEventListener("focus", (event) => {
+    event.target.style.color = "black";
+});
 
 //resize
 
