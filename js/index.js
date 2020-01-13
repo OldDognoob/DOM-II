@@ -99,6 +99,24 @@ window.addEventListener('load', () => {
 });
 
 
-// Nested
+// change title when scrolling website
 
+const opacityEffect = document.querySelector("h1");
+document.addEventListener('scroll', e => {
+    opacityEffect.textContent = "We are scrolling down";
+})
+
+// use greenSock animations
+// animate one element
+TweenMax.from('.logo-heading', 1, {opacity:0});
+
+//animate many elements
+TweenMax.from('.content-section', 2, {opacity:1, scale:0, delay:3});
+
+//Using delays to manage longer animations
+var timeline = new TimeLineMax();
+timeline.from('.log-heading', .5, {scale:0})
+timeline.from('h1', .5, {opacity:0, scale:2})
+
+//easing
 
