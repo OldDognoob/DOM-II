@@ -115,8 +115,12 @@ TweenMax.from('.content-section', 2, {opacity:1, scale:0, delay:3});
 
 //Using delays to manage longer animations
 var timeline = new TimeLineMax();
-timeline.from('.log-heading', .5, {scale:0})
+timeline.from('.logo-heading', .5, {scale:0})
 timeline.from('h1', .5, {opacity:0, scale:2})
 
 //easing
+var timeline = new TimeLineMax();
+timeline.from('.h2', .5, {scale:0, ease:Bounce.easeOut})
+timeline.from('.logo-heading', .5, {scale:0})
+timeline.from('.h1', .5, {opacity:0,scale:2, ease:Back.easeOut.config(3.5)})
 
