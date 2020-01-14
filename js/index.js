@@ -106,6 +106,40 @@ document.addEventListener('scroll', e => {
     opacityEffect.textContent = "We are scrolling down";
 })
 
+//focus
+
+
+
+//blur
+
+
+
+
+
+//nested click event
+const destinationDiv = document.querySelector('.destination');
+destinationDiv.style.cursor ="pointer";
+
+destinationDiv.addEventListener('click', (n) =>{
+    if (destinationDiv.style.background !== 'yellow'){
+        destinationDiv.style.background='yellow';
+    }else{
+        destinationDiv.style.background = 'initial';
+    }
+})
+
+const destinationHover = document.querySelectorAll(".destination");
+console.log(destinationHover);
+destinationHover[0].addEventListener("mouseover", e => {
+  console.log("clicked:sun");
+});
+destinationHover[1].addEventListener("mouseover", e => {
+  console.log("clicked:mountain");
+});
+destinationHover[2].addEventListener("mouseover", e => {
+  console.log("clicked:island");
+});
+
 // use greenSock animations
 // animate one element
 TweenMax.from('.logo-heading', 1, {opacity:0});
@@ -113,14 +147,19 @@ TweenMax.from('.logo-heading', 1, {opacity:0});
 //animate many elements
 TweenMax.from('.content-section', 2, {opacity:1, scale:0, delay:3});
 
-//Using delays to manage longer animations
-var timeline = new TimeLineMax();
-timeline.from('.logo-heading', .5, {scale:0})
-timeline.from('h1', .5, {opacity:0, scale:2})
+//stretch goal adding oncick in html 
+onclick="alert('helloooo!! We are back!!')"
 
-//easing
-var timeline = new TimeLineMax();
-timeline.from('.h2', .5, {scale:0, ease:Bounce.easeOut})
-timeline.from('.logo-heading', .5, {scale:0})
-timeline.from('.h1', .5, {opacity:0,scale:2, ease:Back.easeOut.config(3.5)})
 
+
+
+document.querySelectorAll("nav button").forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      gsap.to(window, {duration: 1, scrollTo:{y:"#section" + (index + 1), offsetY:70}});
+    });
+  });
+
+ 
+  gsap.to(".img-content", {duration: 1, attr: {x:100, y: 50, width: 100, height: 100}, ease: "none"});
+  
+  gsap.to(".logo-heading",{duration:2, x:300, backgroundColor: "lightblue", borderRadius:"20%", border: "5px solid white"});
